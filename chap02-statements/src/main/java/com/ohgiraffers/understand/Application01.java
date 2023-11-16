@@ -11,10 +11,10 @@ import java.sql.Statement;
 public class Application01 {
     public static void main(String[] args) {
 
-        Connection con = getConnection();
-        Statement stmt = null;
+        Connection con = getConnection();             // 연결
+        Statement stmt = null;                        // SQL 구문을 실행하는 역할
         Statement stmt1 = null;
-        ResultSet rset = null;
+        ResultSet rset = null;                       // SELECT의 결과를 저장하는 객체
         ResultSet rset1 = null;
 
         try {
