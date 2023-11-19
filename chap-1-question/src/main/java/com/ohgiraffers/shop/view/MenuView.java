@@ -2,9 +2,13 @@ package com.ohgiraffers.shop.view;
 
 import com.ohgiraffers.shop.controller.MenuCtr;
 import com.ohgiraffers.shop.model.dto.MenuDTO;
+import com.ohgiraffers.shop.model.vo.MenuVo;
 import com.ohgiraffers.shop.service.MenuService;
 
 
+import java.sql.SQLOutput;
+import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class MenuView {
@@ -23,10 +27,10 @@ public class MenuView {
 
             switch (step){
                 case 1 :
-                    System.out.println(menuCtr.registMenu(registMenu())); break ;
+                    System.out.println(menuCtr.giveNum(giveNum()));break ;
                 case 2 :
-                    System.out.println(menuCtr.registMenu(insertMEnu()));break ;
-                case 3 : break ;
+                    System.out.println(menuCtr.registMenu(registMenu())); break ;
+                case 3 : viewMenu(menuCtr.findOrder()); break ;
                 default: return;
             }
 
@@ -34,7 +38,21 @@ public class MenuView {
         }
     }
 
-    public static MenuDTO insertMEnu(){
+    public static void viewMenu(List<MenuVo> menuList){
+        if(Objects.isNull(menuList)){           // 첫번째 조건 empty
+            System.out.println("조회중 오류가 발생됨");
+        } else if ( menuList.size()<0) {
+            System.out.println("등록된 메뉴가 없네요");
+        }else{
+            for (MenuVo menu:menuList) {
+                System.out.println(menu);
+            }
+        }
+
+
+    }
+
+    public static MenuDTO giveNum(){
         Scanner scr = new Scanner(System.in);
         MenuDTO order = new MenuDTO();
         System.out.println("=================================");
@@ -55,14 +73,15 @@ public class MenuView {
         Scanner scr = new Scanner(System.in);
         System.out.println("=================================");
         System.out.println();
-        System.out.print("주문하실 상품 코드의 할인코드를 입력 해주세요 : " );
+        System.out.println("주문코드를 입력 해주세요");
         order.setOrderCode(scr.nextLine());
         System.out.print("아이디를 입력 해주세요 : " );
         order.setUserCode(scr.nextLine());
+        System.out.print("주문하실 상품 코드의 할인코드를 입력 해주세요 : " );
+        order.setDiscountCode(scr.nextLine());
 
 
 
-        // 일반적으로 front에서 js를 이용하여 1차 유효성 검사를 진행한다.
         return order;
 
     }

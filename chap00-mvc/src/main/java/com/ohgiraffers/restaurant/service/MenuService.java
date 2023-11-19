@@ -28,7 +28,7 @@ public class MenuService {
 
     }
 
-    public int registMenu(MenuDTO menuDTO) {
+    public int insertMenu(MenuDTO menuDTO) {
         Connection con = getConnection();
         List<String> category = menuDAO.findAllCategoryCode(con);
 

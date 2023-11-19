@@ -55,7 +55,7 @@ public class MenuCtr {
         }
 
         // 유효성 검사가 끝난 메뉴
-        int result = menuService.registMenu(menuDTO);
+        int result = menuService.insertMenu(menuDTO);
 
         if(result <= 0){
             return "등록중 오류가 발생됨";

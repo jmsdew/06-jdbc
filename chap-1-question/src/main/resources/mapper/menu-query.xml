@@ -2,10 +2,25 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 
 <properties>
+
+    <entry key="findOrder">
+        SELECT
+            ORDER_CODE,
+            MEMBER_CODE,
+            DISCOUNT_CODE
+          FROM TBL_ORDER
+    </entry>
+
     <entry key="updatePrice">
         UPDATE TBL_DISCOUNT
            SET DISCOUNT_PRICE = ?
-         WHERE PRODUCT_NAME = ?
+         WHERE DISCOUNT_CODE = ?
+    </entry>
+
+    <entry key="findDisCode">
+        SELECT
+            DISCOUNT_CODE
+          FROM TBL_DiSCOUNT
     </entry>
 
     <entry key="insertOrder">
@@ -21,10 +36,6 @@
 
     </entry>
 
-    <entry key="selectOrder">
-        SELECT
-            *
-        FROM TBL_ORDER
-    </entry>
+
 
 </properties>
