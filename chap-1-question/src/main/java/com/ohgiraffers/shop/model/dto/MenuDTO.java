@@ -6,6 +6,8 @@ public class MenuDTO {
     private String userCode;
     private String discountCode;
 
+    private int discountMoney;
+
     public MenuDTO() {
     }
 
@@ -13,6 +15,19 @@ public class MenuDTO {
         this.orderCode = orderCode;
         this.userCode = userCode;
         this.discountCode = discountCode;
+    }
+
+    public MenuDTO(String discountCode, int discountMoney) {
+        this.discountCode = discountCode;
+        this.discountMoney = discountMoney;
+    }
+
+    public int getDiscountMoney() {
+        return discountMoney;
+    }
+
+    public void setDiscountMoney(int discountMoney) {
+        this.discountMoney = discountMoney;
     }
 
     public String getOrderCode() {
@@ -47,4 +62,5 @@ public class MenuDTO {
                 ", discountCode='" + discountCode + '\'' +
                 '}';
     }
+
 }
