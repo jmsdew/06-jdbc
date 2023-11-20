@@ -62,7 +62,7 @@ public class MenuView {
         int a = scr.nextInt();
         System.out.println("할인되는 퍼센트를 입력 해주세요");
         int b = scr.nextInt();
-        order.setDiscountMoney(a*(1-b/100));
+        order.setDiscountMoney(a-(a*b/100));
 
         return  order;
 
