@@ -41,10 +41,10 @@ public class MenuVo {
 
     @Override
     public String toString() {
-        return "MenuVo{" +
-                "orderNum='" + orderNum + '\'' +
-                ", UserNum='" + UserNum + '\'' +
-                ", disNum='" + disNum + '\'' +
-                '}';
+        return "주문내역 :  " +
+                "주문번호'" + orderNum + '\'' +
+                ", 유저아이디='" + UserNum + '\'' +
+                ", 주문하신 상품 코드='" + disNum + '\'' +
+                ' ';
     }
 }
