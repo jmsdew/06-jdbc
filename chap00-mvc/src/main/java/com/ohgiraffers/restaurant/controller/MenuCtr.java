@@ -31,9 +31,33 @@ public class MenuCtr {
         return list;
     }
 
-    public int modifyMenu(int code){
-        System.out.println("modify code : " + code);
-        return 0;
+    public String modifyMenu(MenuDTO menuDTO){
+        if(Objects.isNull(menuDTO)){
+            System.out.println("메뉴가 없네요");
+            return "메뉴 정보가 존재하지 않아요 ";
+        }
+        if(menuDTO.getMenuName() == null || menuDTO.getMenuName().equals("")){
+            return "메뉴 이름을 등록해주세요";
+        }
+        if(menuDTO.getPrice() <= 0 ){
+            return "메뉴 가격은 음수 일 수 없습니다.";
+        }
+        if (menuDTO.getCategory() == null || menuDTO.getCategory().equals("")){
+            return "카테고리는 필수";
+        }
+        if(menuDTO.getStatus() == null || menuDTO.getStatus().equals("")){
+            return "판매여부 등록해주세요";
+        }
+
+        // 유효성 검사가 끝난 메뉴
+        int result = menuService.updateMenu(menuDTO);
+
+        if(result <= 0){
+            return "수정중 오류가 발생됨";
+        }else {
+            return "수정 완료";
+        }
+
     }
 
     public String registMenu(MenuDTO menuDTO){

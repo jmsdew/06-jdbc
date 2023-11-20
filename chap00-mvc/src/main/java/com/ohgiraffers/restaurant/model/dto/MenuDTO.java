@@ -6,6 +6,7 @@ public class MenuDTO {        // 값을 입력하는 용도
     private int price;
     private String category;
     private String status;
+    private String oldMenuName;
 
     public MenuDTO() {
     }
@@ -15,6 +16,14 @@ public class MenuDTO {        // 값을 입력하는 용도
         this.price = price;
         this.category = category;
         this.status = status;
+    }
+
+    public MenuDTO(String menuName, int price, String category, String status, String oldMenuName) {
+        this.menuName = menuName;
+        this.price = price;
+        this.category = category;
+        this.status = status;
+        this.oldMenuName = oldMenuName;
     }
 
     public String getMenuName() {
@@ -49,6 +58,14 @@ public class MenuDTO {        // 값을 입력하는 용도
         this.status = status;
     }
 
+    public String getOldMenuName() {
+        return oldMenuName;
+    }
+
+    public void setOldMenuName(String oldMenuName) {
+        this.oldMenuName = oldMenuName;
+    }
+
     @Override
     public String toString() {
         return "MenuDTO{" +
@@ -58,4 +75,5 @@ public class MenuDTO {        // 값을 입력하는 용도
                 ", status='" + status + '\'' +
                 '}';
     }
+
 }

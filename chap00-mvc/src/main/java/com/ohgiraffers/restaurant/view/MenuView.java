@@ -33,7 +33,8 @@ public class MenuView {
                 // 2.1 메뉴 조회
                 case 1 : viewMenu(menuCnt.findAllMenu()); break;
                 // 2.2 메뉴 수정
-                case 2 : break;
+                case 2 :
+                    System.out.println(menuCnt.modifyMenu(updateMenu())); break;
                 // 2.3 메뉴 등록
                 case 3 :
                     System.out.println(menuCnt.registMenu(registMenu())); break;
@@ -83,5 +84,25 @@ public class MenuView {
         // 일반적으로 front에서 js를 이용하여 1차 유효성 검사를 진행한다.
         return newMenu;
 
+    }
+
+    public static MenuDTO updateMenu(){
+        MenuDTO upMenu = new MenuDTO();
+        Scanner scr = new Scanner(System.in);
+        System.out.println("=================================");
+        System.out.println();
+        System.out.print("수정하실 메뉴 이름을 입력 해주세요 : " );
+        upMenu.setOldMenuName(scr.nextLine());
+        System.out.print("등록할 메뉴 이름을 입력 해주세요 : " );
+        upMenu.setMenuName(scr.nextLine());
+        System.out.print("가격을 입력 해주세요 : " );
+        upMenu.setPrice(scr.nextInt());
+        scr.nextLine();
+        System.out.print("카테고리 코드를 입력 해주세요 : " );
+        upMenu.setCategory(scr.nextLine());
+        System.out.print("판매 여부를 입력 해주세요 : " );
+        upMenu.setStatus(scr.nextLine());
+
+        return upMenu;
     }
 }

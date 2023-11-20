@@ -46,4 +46,23 @@ public class MenuService {
 
         return result;
     }
+
+    public int updateMenu(MenuDTO menuDTO) {
+        Connection con = getConnection();
+        List<String> category = menuDAO.findAllCategoryCode(con);
+
+        if(!category.contains(menuDTO.getCategory())){                      // 중요하게 고려해야함
+            return 0;
+        }
+
+        if(menuDTO.getPrice() <= 1000){
+            return 0;
+        }
+
+        int result = menuDAO.updateMenu(con, menuDTO);
+
+        close(con);
+
+        return result;
+    }
 }
